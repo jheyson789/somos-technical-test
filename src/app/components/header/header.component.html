@@ -1,1 +1,15 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Sales Food</span>
+  <span class="spacer"></span>
+  <p class="price">
+    345
+    <mat-icon>monetization_on </mat-icon>
+  </p>
+
+  <button mat-icon-button [routerLink]="['inicio', 'detalles']">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>
