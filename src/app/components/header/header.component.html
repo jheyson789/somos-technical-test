@@ -5,11 +5,16 @@
   <span>My Sales Food</span>
   <span class="spacer"></span>
   <p class="price">
-    345
+    {{ _shoppingCart.getTotalCost() | async }}
     <mat-icon>monetization_on </mat-icon>
   </p>
 
   <button mat-icon-button [routerLink]="['inicio', 'detalles']">
-    <mat-icon>shopping_cart</mat-icon>
+    <mat-icon
+      [matBadge]="_shoppingCart.getTotalProducts() | async"
+      matBadgeColor="warn"
+      matBadgeSize="small"
+      >shopping_cart</mat-icon
+    >
   </button>
 </mat-toolbar>
