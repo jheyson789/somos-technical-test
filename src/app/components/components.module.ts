@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 import { RouterModule } from '@angular/router';
 import { CardProductComponent } from './card-product/card-product.component';
@@ -20,6 +22,8 @@ import { CardProductComponent } from './card-product/card-product.component';
     MatButtonModule,
     MatBadgeModule,
     MatCardModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   exports: [HeaderComponent, CardProductComponent],
 })
