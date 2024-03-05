@@ -1,0 +1,17 @@
+<section *ngIf="_shoppingCart.getCartItemById(productId) | async as product">
+  <article>
+    <h3 mat-h3>{{ product.name }}</h3>
+    <p>Unit price: {{ product.price }}</p>
+    <p>Cant: {{ product.amount }}</p>
+    <p>SubTotal: ${{ product.price * product.amount }}</p>
+  </article>
+  <article class="products">
+    <app-card-product
+      [typeCard]="'remove'"
+      [product]="product"
+      [amount]="1"
+      (productValue)="_shoppingCart.addAmountProduct($event)"
+      *ngFor="let i of range(product.amount)"
+    ></app-card-product>
+  </article>
+</section>

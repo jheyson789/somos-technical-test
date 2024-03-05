@@ -18,6 +18,12 @@ export class ShoppingCartService {
   getCartItems(): Observable<ProductWithAmount[]> {
     return new Observable((observer) => observer.next(this.cartItems));
   }
+  getCartItemById(id: string): Observable<ProductWithAmount> {
+    return new Observable((observer) => {
+      const product = this.cartItems.find((pr) => pr.id === id);
+      observer.next(product);
+    });
+  }
 
   getTotalProducts(): Observable<number> {
     return this.totalProducts.asObservable();
@@ -27,7 +33,7 @@ export class ShoppingCartService {
     return this.totalCost.asObservable();
   }
 
-  getAmount(productId: string) {
+  getAmount(productId: string): number {
     const product = this.cartItems.find((product) => product.id === productId);
     return product ? product.amount : 0;
   }
@@ -40,7 +46,7 @@ export class ShoppingCartService {
     return new Observable((observable) => observable.next());
   }
 
-  addAmountProduct(data: { productId: string; amount: number }) {
+  addAmountProduct(data: { productId: string; amount: number }): void {
     const productIndex = this.cartItems.findIndex(
       (product) => product.id === data.productId
     );
