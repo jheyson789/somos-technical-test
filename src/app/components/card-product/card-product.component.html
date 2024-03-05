@@ -50,4 +50,26 @@
       </button>
     </mat-card-actions>
   </ng-container>
+  <ng-container *ngSwitchCase="'admin'">
+    <mat-card-content>
+      <p>${{ product.price | number : "1.2-2" }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- TODO enviar para editar el producto -->
+      <!-- <button
+        mat-raised-button
+        color="primary"
+        (click)="emitAction(product.id, 'editar')"
+      >
+        Editar
+      </button> -->
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="emitAction(product.id, 'eliminar')"
+      >
+        Eliminar
+      </button>
+    </mat-card-actions>
+  </ng-container>
 </mat-card>

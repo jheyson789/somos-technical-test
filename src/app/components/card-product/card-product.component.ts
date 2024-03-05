@@ -23,7 +23,16 @@ export class CardProductComponent {
     amount: number;
   }>();
 
+  @Output('action') action = new EventEmitter<{
+    productId: string;
+    action: string;
+  }>();
+
   emitAmount(amount: number) {
     this.productValue.emit({ productId: this.product.id, amount });
+  }
+
+  emitAction(productId: string, action: string) {
+    this.action.emit({ productId, action });
   }
 }

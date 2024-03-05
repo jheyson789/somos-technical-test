@@ -22,7 +22,7 @@ export class LocalDBProductService extends ProductService {
   }
   deleteProduct(id: string): Observable<void> {
     const productIndex = this.products.findIndex((pr) => pr.id === id);
-    if (!productIndex) throw new Error('No se encontró el producto');
+    if (productIndex === -1) throw new Error('No se encontró el producto');
     this.products.splice(productIndex, 1);
     return of();
   }

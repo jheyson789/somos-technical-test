@@ -1,0 +1,26 @@
+<section>
+  <app-card-product
+    *ngFor="let product of products | async"
+    [product]="product"
+    [typeCard]="'admin'"
+    (action)="actionToProduct($event)"
+  ></app-card-product>
+</section>
+<!-- TODO formulario para editar el producto -->
+<!-- <article>
+  <form [formGroup]="productForm">
+    <mat-card class="card">
+      <mat-card-content class="content">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text" formControlName="name" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>precio</mat-label>
+          <input type="number" formControlName="price" matInput />
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">guardar</button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</article> -->

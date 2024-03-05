@@ -7,5 +7,10 @@ import { ShoppingCartService } from '../../shared/services/shopping-cart.service
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  opened: boolean = true;
   constructor(public _shoppingCart: ShoppingCartService) {}
+
+  toggleSidebar(): void {
+    this.opened = !this.opened;
+  }
 }

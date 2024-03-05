@@ -1,20 +1,38 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My Sales Food</span>
-  <span class="spacer"></span>
-  <p class="price">
-    {{ _shoppingCart.getTotalCost() | async | number : "1.2-2" }}
-    <mat-icon>monetization_on </mat-icon>
-  </p>
+<mat-sidenav mode="side" [opened]="opened">
+  <mat-toolbar color="primary">
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My Sales Food</span>
+    <span class="spacer"></span>
+    <p class="price">
+      {{ _shoppingCart.getTotalCost() | async | number : "1.2-2" }}
+      <mat-icon>monetization_on </mat-icon>
+    </p>
 
-  <button mat-icon-button [routerLink]="['inicio', 'detalles']">
-    <mat-icon
-      [matBadge]="_shoppingCart.getTotalProducts() | async"
-      matBadgeColor="warn"
-      matBadgeSize="small"
-      >shopping_cart</mat-icon
+    <button mat-icon-button [routerLink]="['inicio', 'detalles']">
+      <mat-icon
+        [matBadge]="_shoppingCart.getTotalProducts() | async"
+        matBadgeColor="warn"
+        matBadgeSize="small"
+        >shopping_cart</mat-icon
+      >
+    </button>
+  </mat-toolbar>
+  <mat-list>
+    <a
+      mat-list-item
+      class="color-primary"
+      routerLink="/inicio"
+      routerLinkActive="active"
+      >Inicio</a
     >
-  </button>
-</mat-toolbar>
+    <a
+      mat-list-item
+      class="color-primary"
+      [routerLink]="['/inicio', 'productos']"
+      routerLinkActive="active"
+      >Productos</a
+    >
+  </mat-list>
+</mat-sidenav>
