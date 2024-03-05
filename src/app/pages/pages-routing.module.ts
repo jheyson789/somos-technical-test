@@ -4,6 +4,7 @@ import { PagesComponent } from './pages.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { DetailsComponent } from './details/details.component';
 import { ProductsComponent } from './products/products.component';
+import { TypeUserGuard } from '../shared/guard/type-user.guard';
 
 const routes: Routes = [
   {
@@ -12,7 +13,11 @@ const routes: Routes = [
     children: [
       { path: 'lista-de-productos', component: ListProductsComponent },
       { path: 'detalles/:productId', component: DetailsComponent },
-      { path: 'productos', component: ProductsComponent },
+      {
+        path: 'productos',
+        component: ProductsComponent,
+        canActivate: [TypeUserGuard],
+      },
       { path: '', pathMatch: 'full', redirectTo: 'lista-de-productos' },
     ],
   },
