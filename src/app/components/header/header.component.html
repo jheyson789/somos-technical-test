@@ -5,7 +5,7 @@
   <span>My Sales Food</span>
   <span class="spacer"></span>
   <p class="price">
-    {{ _shoppingCart.getTotalCost() | async }}
+    {{ _shoppingCart.getTotalCost() | async | number : "1.2-2" }}
     <mat-icon>monetization_on </mat-icon>
   </p>
 

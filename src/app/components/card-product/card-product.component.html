@@ -1,0 +1,32 @@
+<mat-card class="card" [ngSwitch]="typeCard">
+  <mat-card-header>
+    <mat-card-title class="">{{ product.name }}</mat-card-title>
+    <mat-card-subtitle
+      >${{ product.price | number : "1.2-2" }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-actions *ngSwitchDefault>
+    <!-- cantidad -->
+    <button
+      mat-raised-button
+      color="warn"
+      [disabled]="amount <= 0"
+      (click)="emitAmount(-1)"
+    >
+      -1
+    </button>
+    <p>{{ amount }}</p>
+    <button mat-raised-button color="primary" (click)="emitAmount(1)">
+      +1
+    </button>
+  </mat-card-actions>
+  <mat-card-actions *ngSwitchCase="'ver'">
+    <!-- ver / redirection a detalles de la orden -->
+    <button mat-raised-button color="primary">Ver</button>
+  </mat-card-actions>
+  <!-- <mat-card-actions> -->
+  <!-- /realizar cambios de nombre y demás para adm -->
+  <!-- <button mat-raised-button color="primary">Editar</button>
+    <button mat-raised-button color="warn">Eliminar</button>
+  </mat-card-actions> -->
+</mat-card>

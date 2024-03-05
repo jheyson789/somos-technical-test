@@ -5,11 +5,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
 
 import { RouterModule } from '@angular/router';
+import { CardProductComponent } from './card-product/card-product.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, CardProductComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -17,7 +19,8 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
+    MatCardModule,
   ],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, CardProductComponent],
 })
 export class ComponentsModule {}

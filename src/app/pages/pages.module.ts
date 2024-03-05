@@ -5,9 +5,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../components/components.module';
+import { ListProductsComponent } from './list-products/list-products.component';
 
 @NgModule({
-  declarations: [PagesComponent],
+  declarations: [PagesComponent, ListProductsComponent],
   imports: [CommonModule, PagesRoutingModule, RouterModule, ComponentsModule],
 })
 export class PagesModule {}
